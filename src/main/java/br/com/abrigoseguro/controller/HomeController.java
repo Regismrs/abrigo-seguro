@@ -9,4 +9,5 @@ public class HomeController {
     public String home() {
         return "Olá, Abrigo Seguro rodando!";
     }
+
 }
