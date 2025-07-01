@@ -1,4 +1,4 @@
-package br.com.abrigoseguro.controller;
+package br.com.abrigoseguro.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
