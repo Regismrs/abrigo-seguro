@@ -1,4 +1,4 @@
-package br.com.abrigoseguro.models;
+package br.com.abrigoseguro.model;
 
 import jakarta.persistence.*;
 
