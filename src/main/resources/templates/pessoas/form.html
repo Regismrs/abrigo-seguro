@@ -52,12 +52,13 @@
         <div class="col-md-6">
             <label class="form-label" for="ipt-contato">Contato</label>
             <input type="tel" th:field="*{contato}" id="ipt-contato"
-                   data-mask="(99) 99999-9999" class="form-control" placeholder="(00) 00000-0000">
+                   class="form-control" placeholder="(00) 00000-0000">
         </div>
 
         <div class="col-md-6">
             <label class="form-label" for="ipt-cidade-origem">Cidade de Origem</label>
-            <input type="text" th:field="*{cidadeOrigem}" id="ipt-cidade-origem" list="listaCidades" class="form-control" required>
+            <input type="text" th:field="*{cidadeOrigem}" id="ipt-cidade-origem"
+                   list="listaCidades" class="form-control" required>
             <datalist id="listaCidades">
                 <option th:each="cidade : ${cidades}" th:value="${cidade}" />
             </datalist>
@@ -65,7 +66,8 @@
 
         <div class="col-md-6">
             <label class="form-label" for="ipt-contato-emergencia">Contato de Emergência</label>
-            <input type="text" th:field="*{contatoEmergencia}" id="ipt-contato-emergencia" class="form-control">
+            <input type="text" th:field="*{contatoEmergencia}" id="ipt-contato-emergencia"
+                   class="form-control" placeholder="(00) 00000-0000">
         </div>
 
         <div class="col-md-6">

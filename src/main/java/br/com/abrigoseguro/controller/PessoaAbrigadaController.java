@@ -34,6 +34,8 @@ public class PessoaAbrigadaController {
             pagina = repository.findByNomeContainingIgnoreCase(
                     nome,
                     PageRequest.of(page, 10, Sort.by("nome")));
+
+            model.addAttribute("nome", nome);
         } else {
             pagina = repository.findAll(
                     PageRequest.of(page, 10, Sort.by("nome").ascending()));
