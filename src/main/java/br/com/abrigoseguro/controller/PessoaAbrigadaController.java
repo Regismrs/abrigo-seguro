@@ -5,6 +5,7 @@ import br.com.abrigoseguro.repository.PessoaAbrigadaRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +32,10 @@ public class PessoaAbrigadaController {
 
     @GetMapping
     public String listar(Model model, @RequestParam(defaultValue = "0") int page) {
-        Page<PessoaAbrigada> pagina = repository.findAll(PageRequest.of(page, 10)); // 5 por página
+        Page<PessoaAbrigada> pagina = repository.findAll(
+                PageRequest.of(page, 10, Sort.by("nome").ascending())
+        );
+
         model.addAttribute("pagina", pagina);
         return "pessoas/lista"; // sua view de listagem
     }
