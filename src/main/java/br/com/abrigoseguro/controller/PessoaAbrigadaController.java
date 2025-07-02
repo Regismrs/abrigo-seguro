@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/abrigados")
@@ -50,6 +51,8 @@ public class PessoaAbrigadaController {
         } catch (DataIntegrityViolationException e) {
             System.out.println(">>> Erro inesperado: " + e.getClass().getName());
             model.addAttribute("pessoa", pessoa);
+            model.addAttribute("cidades", repository.buscarCidadesOrigem());
+            model.addAttribute("abrigos", repository.buscarAbrigos());
             model.addAttribute("erro", "CPF já cadastrado.");
             return "pessoas/form";
         }
@@ -66,6 +69,19 @@ public class PessoaAbrigadaController {
         }
 
         return "redirect:/abrigados";
+    }
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
+        Optional<PessoaAbrigada> pessoalOptional = repository.findById(id);
+        if (pessoalOptional.isPresent()) {
+            model.addAttribute("pessoa", pessoalOptional.get());
+            model.addAttribute("cidades", repository.buscarCidadesOrigem());
+            model.addAttribute("abrigos", repository.buscarAbrigos());
+            return "pessoas/form";
+        } else {
+            redirectAttributes.addFlashAttribute("erro", "Pessoa não encontrada.");
+            return "redirect:/abrigados";
+        }
     }
 
 }

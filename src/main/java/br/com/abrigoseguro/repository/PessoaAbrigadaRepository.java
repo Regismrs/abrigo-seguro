@@ -11,4 +11,7 @@ public interface PessoaAbrigadaRepository extends JpaRepository<PessoaAbrigada, 
     @Query("SELECT DISTINCT p.cidadeOrigem FROM PessoaAbrigada p ORDER BY p.cidadeOrigem ASC")
     List<String> buscarCidadesOrigem();
 
+    @Query("SELECT DISTINCT p.abrigoAtual FROM PessoaAbrigada p ORDER BY p.abrigoAtual ASC")
+    List<String> buscarAbrigos();
+
 }
