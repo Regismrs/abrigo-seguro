@@ -14,7 +14,16 @@
     </div>
 
     <h2 class="text-primary mb-4">Lista de Pessoas Abrigadas</h2>
-    <a class="btn btn-primary mb-3" th:href="@{/abrigados/novo}">Nova Pessoa</a>
+
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
+        <a class="btn btn-primary" th:href="@{/abrigados/novo}">Nova Pessoa</a>
+        <!-- Busca -->
+        <form class="d-flex" method="get" th:action="@{/abrigados}">
+            <input type="text" class="form-control me-2" name="nome" placeholder="Buscar por nome"
+                   th:value="${nome}">
+            <button type="submit" class="btn btn-secondary">Buscar 🔎</button>
+        </form>
+    </div>
 
     <table class="table table-striped table-bordered">
         <thead class="table-secondary">

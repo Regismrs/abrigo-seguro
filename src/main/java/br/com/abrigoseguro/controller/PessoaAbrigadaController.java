@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -22,19 +24,30 @@ public class PessoaAbrigadaController {
     }
 
     @GetMapping
-    public String listar(Model model, @RequestParam(defaultValue = "0") int page) {
-        Page<PessoaAbrigada> pagina = repository.findAll(
-                PageRequest.of(page, 10, Sort.by("nome").ascending())
-        );
+    public String listar(@RequestParam(required = false) String nome,
+                         @RequestParam(defaultValue = "0") int page,
+                         Model model) {
+
+        Page<PessoaAbrigada> pagina;
+
+        if (nome != null && !nome.isBlank()) {
+            pagina = repository.findByNomeContainingIgnoreCase(
+                    nome,
+                    PageRequest.of(page, 10, Sort.by("nome")));
+        } else {
+            pagina = repository.findAll(
+                    PageRequest.of(page, 10, Sort.by("nome").ascending()));
+        }
 
         model.addAttribute("pagina", pagina);
-        return "pessoas/lista"; // sua view de listagem
+        return "pessoas/lista";
     }
 
     @GetMapping("/novo")
     public String novo(Model model) {
         model.addAttribute("pessoa", new PessoaAbrigada());
         model.addAttribute("cidades", repository.buscarCidadesOrigem());
+        model.addAttribute("abrigos", repository.buscarAbrigos());
         return "pessoas/form";
     }
 
