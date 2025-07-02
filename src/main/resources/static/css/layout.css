@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    background-color: #F9F2EB;
+    color: #333;
+}
+
+h2 {
+    color: #0d6efd;
+}
+
+.table {
+    background-color: white;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-success {
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+@keyframes fadeOut {
+    0%   { opacity: 1; }
+    80%  { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+.notificacao {
+    position: absolute;
+    bottom: 1.5em;
+    right: 1.5em;
+    animation: fadeOut 4s forwards;
+}

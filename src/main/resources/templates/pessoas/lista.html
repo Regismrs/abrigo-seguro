@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Abrigados</title>
@@ -8,6 +8,11 @@
 </head>
 <body>
 <div class="container mt-4">
+    <!-- Sucesso -->
+    <div th:if="${sucesso}" class="alert alert-success notificacao" role="alert">
+        <p th:text="${sucesso}"></p>
+    </div>
+
     <h2 class="text-primary mb-4">Lista de Pessoas Abrigadas</h2>
     <a class="btn btn-primary mb-3" th:href="@{/abrigados/novo}">Nova Pessoa</a>
 
@@ -15,22 +20,50 @@
         <thead class="table-secondary">
         <tr>
             <th>Nome</th>
-            <th>CPF</th>
-            <th>Contato</th>
             <th>Abrigo Atual</th>
-            <th>Data de Entrada</th>
+            <th>Data Entrada</th>
+            <th>Cidade Origem</th>
+            <th>Mãe</th>
+            <th>Data Nasc.</th>
+            <th>Ações</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="pessoa : ${pessoas}">
+        <tr th:each="pessoa : ${pagina.content}">
             <td th:text="${pessoa.nome}">Nome</td>
-            <td th:text="${pessoa.cpf}">CPF</td>
-            <td th:text="${pessoa.contato}">Contato</td>
-            <td th:text="${pessoa.abrigoAtual}">Abrigo</td>
-            <td th:text="${pessoa.dataEntrada}">Data</td>
+            <td th:text="${pessoa.abrigoAtual}">Abrigo Atual</td>
+            <td th:text="${#temporals.format(pessoa.dataEntrada, 'dd/MM/yyyy')}">Data Entrada</td>
+            <td th:text="${pessoa.cidadeOrigem}">Cidade Origem</td>
+            <td th:text="${pessoa.nomeMae}">Mãe</td>
+            <td th:text="${#temporals.format(pessoa.dataNascimento, 'dd/MM/yyyy')}">Data Nasc.</td>
+            <td>
+                <a class="btn btn-sm btn-warning" th:href="@{/abrigados/editar/{id}(id=${pessoa.id})}">Editar</a>
+                <a class="btn btn-sm btn-danger" th:href="@{/abrigados/excluir/{id}(id=${pessoa.id})}"
+                   onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+            </td>
         </tr>
         </tbody>
     </table>
+
+    <nav th:if="${pagina.totalPages > 1}">
+        <ul class="pagination justify-content-center">
+
+            <li class="page-item" th:classappend="${pagina.first} ? 'disabled'">
+                <a class="page-link" th:href="@{/abrigados(page=${pagina.number - 1})}">Anterior</a>
+            </li>
+
+            <li class="page-item" th:each="i : ${#numbers.sequence(0, pagina.totalPages - 1)}"
+                th:classappend="${pagina.number == i} ? 'active'">
+                <a class="page-link" th:href="@{/abrigados(page=${i})}" th:text="${i + 1}">1</a>
+            </li>
+
+            <li class="page-item" th:classappend="${pagina.last} ? 'disabled'">
+                <a class="page-link" th:href="@{/abrigados(page=${pagina.number + 1})}">Próxima</a>
+            </li>
+
+        </ul>
+    </nav>
+
 </div>
 </body>
 </html>

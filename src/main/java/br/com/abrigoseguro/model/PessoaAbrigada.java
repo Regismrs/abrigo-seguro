@@ -14,8 +14,10 @@ public class PessoaAbrigada {
     private String nome;
     private String nomeMae;
     private String nomePai;
+    private String contato;
+    private String contatoEmergencia;
+    private String cidadeOrigem;
     private LocalDate dataNascimento;
-
     private String abrigoAtual;
     private LocalDate dataEntrada;
 
@@ -33,6 +35,19 @@ public class PessoaAbrigada {
 
     public String getNomePai() { return nomePai; }
     public void setNomePai(String nomePai) { this.nomePai = nomePai; }
+
+    public String getContato() { return contato; }
+    public void setContato(String contato) { this.contato = contato; }
+
+    public String getContatoEmergencia() { return contatoEmergencia; }
+    public void setContatoEmergencia(String contatoEmergencia) {
+        this.contatoEmergencia = contatoEmergencia;
+    }
+
+    public String getCidadeOrigem() { return cidadeOrigem; }
+    public void setCidadeOrigem(String cidadeOrigem) {
+        this.cidadeOrigem = cidadeOrigem;
+    }
 
     public LocalDate getDataNascimento() { return dataNascimento; }
     public void setDataNascimento(LocalDate dataNascimento) {
