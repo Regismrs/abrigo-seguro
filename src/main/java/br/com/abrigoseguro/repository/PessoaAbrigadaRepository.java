@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface PessoaAbrigadaRepository extends JpaRepository<PessoaAbrigada, Long> {
-
     @Query("SELECT DISTINCT p.cidadeOrigem FROM PessoaAbrigada p ORDER BY p.cidadeOrigem ASC")
     List<String> buscarCidadesOrigem();
 
