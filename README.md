@@ -16,7 +16,7 @@
 
 ## ✨ Sobre o Projeto
 
-Durante as enchentes que atingiram o Rio Grande do Sul em maio de 2025, milhares de pessoas ficaram desabrigadas e foram acolhidas em abrigos improvisados. A falta de uma ferramenta unificada dificultou o controle de informações essenciais, como nomes, locais, contatos e dados familiares. Este projeto surge como uma iniciativa solidária para facilitar o registro e a consulta de pessoas abrigadas.
+Durante as enchentes que atingiram o Rio Grande do Sul em maio de 2024, milhares de pessoas ficaram desabrigadas e foram acolhidas em abrigos improvisados. A falta de uma ferramenta unificada dificultou o controle de informações essenciais, como nomes, locais, contatos e dados familiares. Este projeto surge como uma iniciativa solidária para facilitar o registro e a consulta de pessoas abrigadas.
 
 
 
