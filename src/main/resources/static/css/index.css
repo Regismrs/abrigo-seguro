@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-    background-color: #f9f2eB;
+    background-color: white;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -12,9 +12,10 @@ body {
 }
 .content-box {
     max-width: 900px;
-    background: white;
+    background: #f9f2eB;;
     padding: 40px;
     border-radius: 12px;
+    border: 2px solid #c7c0b9;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 .logo-img {
