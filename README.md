@@ -1,3 +1,6 @@
+<div style="text-align: center;">
+![alt text](https://github.com/Regismrs/abrigo-seguro/tree/main/src/main/resources/static/images/logo.png "Our logo")
+</div>
 
 # 🛟 Abrigo Seguro
 
