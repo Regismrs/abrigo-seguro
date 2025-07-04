@@ -1,6 +1,6 @@
-<div style="text-align: center;">
-![alt text](https://github.com/Regismrs/abrigo-seguro/tree/main/src/main/resources/static/images/logo.png "Our logo")
-</div>
+<p align="center">
+  <img src="https://github.com/Regismrs/abrigo-seguro/raw/main/src/main/resources/static/images/logo.png" alt="Logo Abrigo Seguro" width="300">
+</p>
 
 # 🛟 Abrigo Seguro
 
